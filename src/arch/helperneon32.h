@@ -7,7 +7,7 @@
 #error Please specify -mfpu=neon.
 #endif
 
-#ifdef __aarch64__
+#if defined(__aarch64__) || defined(__gptx__)
 #warning This implementation is for AARCH32.
 #endif
 

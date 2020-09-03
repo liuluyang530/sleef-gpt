@@ -43,7 +43,7 @@
 #define ENABLE_FMA_DP
 #define ENABLE_FMA_SP
 
-#if defined(__AVX2__) || defined(__aarch64__) || defined(__arm__) || defined(__powerpc64__)
+#if defined(__AVX2__) || defined(__aarch64__)  || defined(__gptx__) || defined(__arm__) || defined(__powerpc64__)
 #ifndef FP_FAST_FMA
 #define FP_FAST_FMA
 #endif
@@ -68,7 +68,8 @@
 
 #define ACCURATE_SQRT
 
-#if defined(__SSE4_1__) || defined(__aarch64__)
+#if defined(__SSE4_1__) || defined(__aarch64__) || defined(__gptx__)
+
 #define FULL_FP_ROUNDING
 #endif
 

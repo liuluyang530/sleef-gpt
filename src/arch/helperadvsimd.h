@@ -5,11 +5,11 @@
 /*          http://www.boost.org/LICENSE_1_0.txt)                    */
 /*********************************************************************/
 
-#ifndef __ARM_NEON
-#error Please specify advsimd flags.
-#endif
+//#ifndef __ARM_NEON
+//#error Please specify advsimd flags.
+//#endif
 
-#include <arm_neon.h>
+//#include <arm_neon.h>
 #include <stdint.h>
 
 #include "misc.h"
@@ -32,6 +32,15 @@
 #define ACCURATE_SQRT
 
 #define ISANAME "AArch64 AdvSIMD"
+
+
+typedef unsigned int   uint32x2_t;
+typedef unsigned int   int32x2_t;
+typedef unsigned int   int32x4_t;
+typedef unsigned int   uint32x4_t;
+typedef unsigned long  uint64x2_t;
+typedef float          float32x4_t;
+typedef float          float64x2_t;
 
 // Mask definition
 typedef uint32x4_t vmask;
@@ -527,10 +536,12 @@ static INLINE VECTOR_CC vopmask visminf_vo_vf(vfloat d) {
 static INLINE VECTOR_CC vopmask visnan_vo_vf(vfloat d) { return vneq_vo_vf_vf(d, d); }
 
 static INLINE VECTOR_CC vopmask vcast_vo32_vo64(vopmask m) {
-  return vuzpq_u32(m, m).val[0];
+  //return vuzpq_u32(m, m).val[0];
+  return 0;
 }
 static INLINE VECTOR_CC vopmask vcast_vo64_vo32(vopmask m) {
-  return vzipq_u32(m, m).val[0];
+  //return vzipq_u32(m, m).val[0];
+  return 0;
 }
 
 static INLINE VECTOR_CC vopmask vand_vo_vo_vo(vopmask x, vopmask y) {
@@ -577,7 +588,8 @@ static INLINE VECTOR_CC vmask vor_vm_vo64_vm(vopmask x, vmask y) {
   return vorrq_u32(x, y);
 }
 static INLINE VECTOR_CC vmask vxor_vm_vo32_vm(vopmask x, vmask y) {
-  return veorq_u32(x, y);
+  //return veorq_u32(x, y);
+  return 0;
 }
 
 static INLINE VECTOR_CC vfloat vtruncate_vf_vf(vfloat vd) { return vrndq_f32(vd); }

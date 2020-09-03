@@ -611,6 +611,8 @@ EXPORT CONST VECTOR_CC vfloat xcosf(vfloat d) {
 }
 
 EXPORT CONST VECTOR_CC vfloat xtanf(vfloat d) {
+#if 0
+
 #if !defined(DETERMINISTIC)
   vint2 q;
   vopmask o;
@@ -732,6 +734,8 @@ EXPORT CONST VECTOR_CC vfloat xtanf(vfloat d) {
 
   return u;
 #endif // #if !defined(DETERMINISTIC)
+#endif
+
 }
 
 EXPORT CONST VECTOR_CC vfloat xsinf_u1(vfloat d) {
