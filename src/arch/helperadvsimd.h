@@ -9,7 +9,9 @@
 //#error Please specify advsimd flags.
 //#endif
 
-//#include <arm_neon.h>
+#ifndef __gptx__
+#include <arm_neon.h>
+#endif
 #include <stdint.h>
 
 #include "misc.h"
